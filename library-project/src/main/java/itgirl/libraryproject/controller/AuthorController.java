@@ -1,13 +1,9 @@
 package itgirl.libraryproject.controller;
 
 import itgirl.libraryproject.dto.AuthorDto;
-import itgirl.libraryproject.model.Author;
 import itgirl.libraryproject.service.AuthorService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,4 +16,18 @@ public class AuthorController {
         return authorService.getAuthorById(id);
     }
 
+    @GetMapping("authorname1")
+    AuthorDto getAuthorByName1(@RequestParam("name") String name){
+        return authorService.getAuthorByNameVersion1(name);
+    }
+
+    @GetMapping("authorname2")
+    AuthorDto getAuthorByName2(@RequestParam("name") String name){
+        return authorService.getAuthorByNameVersion2(name);
+    }
+
+    @GetMapping("authorname3")
+    AuthorDto getAuthorByName3(@RequestParam("name") String name){
+        return authorService.getAuthorByNameVersion3(name);
+    }
 }
