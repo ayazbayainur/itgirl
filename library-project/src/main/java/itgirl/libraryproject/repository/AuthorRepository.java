@@ -11,5 +11,4 @@ public interface AuthorRepository extends JpaRepository<Author, Long>, JpaSpecif
     Optional<Author> findAuthorByName(String name);
     @Query(nativeQuery = true, value = "SELECT * FROM AUTHOR WHERE firstname = ?")
     Optional<Author> findAuthorByNameBySql(String name);
-
 }

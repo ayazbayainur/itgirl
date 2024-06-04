@@ -1,9 +1,12 @@
 package itgirl.libraryproject.controller;
 
+import itgirl.libraryproject.dto.BookCreateDto;
 import itgirl.libraryproject.dto.BookDto;
 import itgirl.libraryproject.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,5 +32,15 @@ public class BookController {
     @GetMapping("bookname3")
     BookDto getBookByName3(@RequestParam("name") String name){
         return bookService.getBookByNameVersion3(name);
+    }
+
+    @PostMapping("create/")
+    BookDto createBook(@RequestBody BookCreateDto bookCreateDto){
+        return bookService.createBook(bookCreateDto);
+    }
+
+    @GetMapping("all")
+    List<BookDto> getAllBooks(){
+        return bookService.getAllBooks();
     }
 }

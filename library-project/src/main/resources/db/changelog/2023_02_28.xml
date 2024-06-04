@@ -36,11 +36,12 @@
                 );
 
             Insert into author(id, firstname, surname) values
-                                                  (1, 'Александр', 'Пушкин'),
-                                                  (2, 'Николай', 'Гоголь'),
-                                                  (3, 'Лев', 'Толстой'),
-                                                  (4, 'Михаил', 'Булгаков'),
-                                                  (5, 'Федор', 'Достоевский');
+                                                           (1, 'Александр', 'Пушкин'),
+                                                           (2, 'Николай', 'Гоголь'),
+                                                           (3, 'Лев', 'Толстой'),
+                                                           (4, 'Михаил', 'Булгаков'),
+                                                           (5, 'Федор', 'Достоевский');
+
 
             Insert into genre(id, firstname) values
                                         (1, 'Рассказ'),
@@ -62,4 +63,11 @@
 
         </sql>
     </changeSet>
+
+<!--    <changeSet id="1" author="author firstname">-->
+<!--        <sql>-->
+<!--            DELETE FROM Auhor;-->
+<!--        </sql>-->
+<!--    </changeSet>-->
 </databaseChangeLog>
+

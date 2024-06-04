@@ -22,12 +22,19 @@ public class Author {
     private Long id;
 
     @Column(name = "firstname", nullable = false)
+    @Setter
     private String name;
 
     @Column(nullable = false)
+    @Setter
     private String surname;
 
+    @Column
+    private Boolean active;
+
     @ManyToMany(mappedBy = "authors")
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
+
+
 
 }
