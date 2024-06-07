@@ -5,10 +5,13 @@ import itgirl.libraryproject.dto.BookDto;
 import itgirl.libraryproject.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/book/")
 public class BookController {
@@ -39,8 +42,15 @@ public class BookController {
         return bookService.createBook(bookCreateDto);
     }
 
+//    @GetMapping("all")
+//    List<BookDto> getAllBooks(){
+//        return bookService.getAllBooks();
+//    }
+
     @GetMapping("all")
-    List<BookDto> getAllBooks(){
-        return bookService.getAllBooks();
+    String getBooksView(Model model) {
+        model.addAttribute("books", bookService.getAllBooks());
+        return "library";
     }
+
 }

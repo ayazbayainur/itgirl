@@ -5,9 +5,12 @@ import itgirl.libraryproject.dto.AuthorDto;
 import itgirl.libraryproject.dto.AuthorUpdateDto;
 import itgirl.libraryproject.service.AuthorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
-@RestController
+
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/author/")
 public class AuthorController {
@@ -56,5 +59,11 @@ public class AuthorController {
     @DeleteMapping("delete/{id}")
     AuthorDto deleteAuthor(@PathVariable("id") Long id){
         return authorService.deleteAuthor(id);
+    }
+
+    @GetMapping("all")
+    public String getBooksView(Model model){
+        model.addAttribute("authors", authorService.getAllBooks());
+        return "authors";
     }
 }

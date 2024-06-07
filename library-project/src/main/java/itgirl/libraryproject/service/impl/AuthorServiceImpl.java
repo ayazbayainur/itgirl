@@ -82,12 +82,16 @@ public class AuthorServiceImpl implements AuthorService {
         authorRepository.deleteById(id);
         return authorDto;
     }
-
+    @Override
+    public List<AuthorDto> getAllBooks(){
+        return authorRepository.findAll().stream().map(author -> convertToDto(author)).toList();
+    }
     private boolean findAuthorBySurnameAndName(String surname, String name){
         List<Author> authors = authorRepository.findAll().stream().filter(author -> author.getSurname().equals(surname) && author.getName().equals(name)).toList();
         if(authors.isEmpty()) return false;
         else return true;
     }
+
     private Author convertToEntity(AuthorCreateDto authorCreateDto){
         return Author.builder()
                 .name(authorCreateDto.getName())
