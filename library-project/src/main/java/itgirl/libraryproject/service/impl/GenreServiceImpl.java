@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class GenreServiceImpl implements GenreService {
-    private final GenreRepository genreRepository;
-    private final BookRepository bookRepository;
+    private  GenreRepository genreRepository;
+    private  BookRepository bookRepository;
 
     @Override
     public GenreDto getGenreById(Long id){

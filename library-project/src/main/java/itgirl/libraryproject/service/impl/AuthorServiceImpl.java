@@ -113,7 +113,7 @@ public class AuthorServiceImpl implements AuthorService {
                 .id(author.getId())
                 .name(author.getName())
                 .surname(author.getSurname())
-                .active(author.getActive())
+//                .active(author.getActive())
                 .build();
     }
 

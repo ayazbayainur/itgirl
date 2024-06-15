@@ -4,6 +4,7 @@ import itgirl.libraryproject.dto.BookCreateDto;
 import itgirl.libraryproject.dto.BookDto;
 import itgirl.libraryproject.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +49,7 @@ public class BookController {
 //    }
 
     @GetMapping("all")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     String getBooksView(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
         return "library";

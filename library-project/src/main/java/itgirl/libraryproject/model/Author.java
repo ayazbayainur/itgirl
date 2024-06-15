@@ -29,8 +29,8 @@ public class Author {
     @Setter
     private String surname;
 
-    @Column
-    private Boolean active;
+//    @Column
+//    private Boolean active;
 
     @ManyToMany(mappedBy = "authors")
     private List<Book> books = new ArrayList<>();

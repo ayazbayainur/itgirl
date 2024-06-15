@@ -22,8 +22,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
-    private final BookRepository bookRepository;
-    private final GenreRepository genreRepository;
+      private final BookRepository bookRepository;
+      GenreRepository genreRepository;
 
     @Override
     public BookDto getBookById(Long id){

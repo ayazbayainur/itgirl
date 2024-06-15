@@ -1,21 +1,22 @@
 package itgirl.libraryproject.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Unsigned;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Genre {
+@Table(name="users")
+public class MyUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String name;
+    @Column(unique = true)
+    private String username;
+    private String password;
+    @Column(name = "role")
+    private String roles;
 }

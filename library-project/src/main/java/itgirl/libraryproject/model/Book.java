@@ -19,7 +19,7 @@ public class Book{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "firstname", nullable = false)
+    @Column(nullable = false)
     private String name;
 
     @ManyToOne
