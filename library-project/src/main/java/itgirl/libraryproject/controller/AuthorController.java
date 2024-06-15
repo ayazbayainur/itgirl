@@ -5,6 +5,7 @@ import itgirl.libraryproject.dto.AuthorDto;
 import itgirl.libraryproject.dto.AuthorUpdateDto;
 import itgirl.libraryproject.service.AuthorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ public class AuthorController {
     private final AuthorService authorService;
 
     @GetMapping("{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     AuthorDto getAuthorById(@PathVariable ("id") Long id){
         return authorService.getAuthorById(id);
     }
@@ -62,6 +64,7 @@ public class AuthorController {
     }
 
     @GetMapping("all")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String getBooksView(Model model){
         model.addAttribute("authors", authorService.getAllBooks());
         return "authors";
