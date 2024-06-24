@@ -23,7 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
       private final BookRepository bookRepository;
-      GenreRepository genreRepository;
+      private final GenreRepository genreRepository;
 
     @Override
     public BookDto getBookById(Long id){

@@ -1,11 +1,8 @@
-package itgirl.libraryproject.controller;
+package itgirl.libraryproject.controller.rest;
 
 import itgirl.libraryproject.model.MyUser;
-import itgirl.libraryproject.service.impl.MyUserDetailsService;
 import itgirl.libraryproject.service.impl.RegistrationService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 //@AllArgsConstructor
 @RequestMapping("/register/")
-public class RegistrationController {
+public class RegistrationRestController {
     private final RegistrationService registrationService;
 
     @PostMapping("new-user")

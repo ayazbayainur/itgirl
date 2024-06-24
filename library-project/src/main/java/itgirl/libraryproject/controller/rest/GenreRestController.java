@@ -1,4 +1,4 @@
-package itgirl.libraryproject.controller;
+package itgirl.libraryproject.controller.rest;
 
 import itgirl.libraryproject.dto.GenreDto;
 import itgirl.libraryproject.service.GenreService;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/genre/")
-public class GenreController {
+public class GenreRestController {
     private final GenreService genreService;
 
     @GetMapping("{id}")

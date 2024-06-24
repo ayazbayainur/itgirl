@@ -24,11 +24,19 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.csrf(AbstractHttpConfigurer::disable)
+        httpSecurity
+                .csrf(AbstractHttpConfigurer::disable)
+//                .csrf().disable()
                 .authorizeHttpRequests((authorize)->
-                authorize.requestMatchers("/register/new-user").permitAll()
-                        .requestMatchers("/book/all").authenticated()
-                        .requestMatchers("/author/all").authenticated())
+                authorize.requestMatchers("/register/new-user", "book/all", "author/create", "book/create").permitAll()
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+//                                "/swagger-resources/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/**",
+                                "/webjars/**" ,
+                                /*Probably not needed*/ "/swagger.json").permitAll()
+                        .requestMatchers("/author/all", "book/id/*").authenticated())
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll);
         return httpSecurity.build();
     }
